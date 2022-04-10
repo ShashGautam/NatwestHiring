@@ -42,11 +42,7 @@ public class PersistenceJPAConfig {
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-//        properties.setProperty("javax.persistence.jdbc.url", "jdbc:mysql://localhost:3306/AccountTransaction");
-//        properties.setProperty("javax.persistence.jdbc.user", "root");
-//        properties.setProperty("javax.persistence.jdbc.password", "root1234");
-//        properties.setProperty("javax.persistence.jdbc.driver", "com.mysql.cj.jdbc.Driver");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         return properties;
     }
 
@@ -62,22 +58,4 @@ public class PersistenceJPAConfig {
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
-
-//    @Bean
-//    public LocalEntityManagerFactoryBean entityManagerFactory() {
-//        LocalEntityManagerFactoryBean factoryBean = new LocalEntityManagerFactoryBean();
-////        HibernatePersistenceProvider hibernatePersistenceProvider = new HibernatePersistenceProvider();
-////        hibernatePersistenceProvider.createEntityManagerFactory("AccTransact", additionalProperties());
-////        factoryBean.setPersistenceProvider(hibernatePersistenceProvider);
-//        factoryBean.setPersistenceUnitName("AccTransact");
-//        return factoryBean;
-//    }
-//
-//    @Bean
-//    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(entityManagerFactory);
-//
-//        return transactionManager;
-//    }
 }
