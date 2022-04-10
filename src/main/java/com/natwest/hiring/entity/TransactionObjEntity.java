@@ -23,5 +23,5 @@ public class TransactionObjEntity {
     @JsonProperty("Currency")
     private String currency;
     @JsonProperty("Amount")
-    private String ammount;
+    private String amount;
 }
