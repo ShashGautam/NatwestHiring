@@ -94,6 +94,10 @@
             <artifactId>spring-data-jpa</artifactId>
             <version>2.1.4.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -122,10 +126,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <driver>com.mysql.cj.jdbc.Driver</driver>
-                    <url>jdbc:mysql://${database.host}:${database.port}/${database.name}</url>
                     <user>${database.username}</user>
                     <password>${database.password}</password>
+                    <driver>org.h2.Driver</driver>
+                    <url>jdbc:h2:~/AccountTransaction</url>
                     <baselineOnMigrate>true</baselineOnMigrate>
                     <schemas>public</schemas>
                     <locations>
