@@ -44,7 +44,7 @@ public class TransactionService {
 //        RestResponse restResponse = new RestResponse(200, "Successful");
         try {
             RestClient restClient = RestClient.builder().requestBody(encryptTransaction(transactionObj)).build();
-            return restService.sendRequest(restClient, HttpMethod.POST, host + "transaction/queue", RestResponse.class).getBody();
+            return restService.sendRequest(restClient, HttpMethod.POST, host + "/app/v1/transaction/queue", RestResponse.class).getBody();
         } catch (HttpClientErrorException e) {
             e.printStackTrace();
             return new RestResponse(400, e.getLocalizedMessage());
