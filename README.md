@@ -7,3 +7,5 @@ Natwest Hiring Backend Assignment
  3. mysql db installed
  4. Please configure database configuration in pom file under properties section and same in application.properties file without changing DB name.
  5. Run the maven commands: mvn flyway:repair and mvn clean install -DskipTests
+ 6. GitHub Link: https://github.com/ShashGautam/NatwestHiring
+ 7. Heroku Link: https://natwest-hiring.herokuapp.com/
