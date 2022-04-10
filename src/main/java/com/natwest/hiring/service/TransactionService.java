@@ -8,6 +8,7 @@ import com.natwest.hiring.model.RestResponse;
 import com.natwest.hiring.model.TransactionObj;
 import com.natwest.hiring.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -36,11 +37,14 @@ public class TransactionService {
     @Autowired
     CryptographyService cryptographyService;
 
+    @Value("${app.domain}")
+    String host;
+
     public RestResponse postTransaction(TransactionObj transactionObj) {
 //        RestResponse restResponse = new RestResponse(200, "Successful");
         try {
             RestClient restClient = RestClient.builder().requestBody(encryptTransaction(transactionObj)).build();
-            return restService.sendRequest(restClient, HttpMethod.POST, "http://localhost:8080/transaction/queue", RestResponse.class).getBody();
+            return restService.sendRequest(restClient, HttpMethod.POST, host + "transaction/queue", RestResponse.class).getBody();
         } catch (HttpClientErrorException e) {
             e.printStackTrace();
             return new RestResponse(400, e.getLocalizedMessage());
